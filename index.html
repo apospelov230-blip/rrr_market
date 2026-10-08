@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>rrr market — выкуп одежды из Китая, Японии, Кореи и Европы</title>
+<style>
+:root{--bg:#0f1f3d;--fg:#fff;--muted:rgba(255,255,255,.84);--card:rgba(255,255,255,.05);--line:rgba(255,255,255,.22);--accent:#e8c468;--accent-fg:#0b1a33;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+mark{background:var(--accent);color:var(--accent-fg);padding:.02em .22em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(160deg,#091428 0%,#12284d 55%,#0d1d3a 100%) fixed,var(--bg);min-height:100vh;color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.5px}
+.logo b{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
+.hero{padding:56px 0 40px}
+h1{font-size:clamp(32px,6.5vw,56px);line-height:1.08;margin:0 0 16px;letter-spacing:-1.5px}
+.hero p{color:var(--muted);font-size:19px;max-width:560px;margin:0 0 28px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-fg);padding:14px 26px;border-radius:12px;font-weight:600;text-decoration:none}
+.btn.o{background:none;color:var(--fg);border:1px solid var(--line);margin-left:8px}
+h2{font-size:28px;margin:56px 0 20px;letter-spacing:-.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .e{font-size:32px}
+.card h3{margin:10px 0 4px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.eta{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;font-weight:600}.eta small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.n{color:var(--accent);font-weight:800;font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:14px;color:var(--muted)}
+.brands{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.brand{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column}.brand h3{margin:0 0 2px;font-size:19px;letter-spacing:-.3px}.brand .o{color:var(--accent);font-size:13px;font-weight:600;margin-bottom:8px}.brand p{flex:1;margin:0;color:var(--muted);font-size:14px}.btn.buy{display:block;text-align:center;margin-top:14px;padding:10px 16px;font-size:15px}.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.calc label{display:block;font-size:14px;color:var(--muted);margin:0 0 6px}
+.calc select,.calc input{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--fg);font:inherit;margin-bottom:16px}
+.calc select option{color:#111}
+.calc .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.calc .row span:first-child{color:var(--muted)}
+.calc .total{border:0;font-size:20px;font-weight:800;padding-top:16px}
+.calc .total span:first-child{color:var(--fg)}
+.calc .total span:last-child{color:var(--accent)}
+.hint{color:var(--muted);font-size:13px;margin:12px 0 0}
+#countries h2,#how h2,#why h2{font-size:22px;margin:36px 0 12px}
+#countries .grid,#how .grid,#why .grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#countries .card,#how .card,#why .card{padding:14px;border-radius:12px}
+#countries .card .e,#why .card .e{font-size:24px}
+#countries .card h3,#how .card h3,#why .card h3{font-size:15px;margin:6px 0 2px}
+#countries .card p,#how .card p,#why .card p{font-size:13px;line-height:1.45}
+#countries .eta{margin-top:8px;padding-top:8px;font-size:13px}
+#countries .eta small{font-size:12px}
+#how .n{font-size:12px}
+#why .tags{margin-top:10px}
+#why .tags span{padding:4px 11px;font-size:13px}
+.bimg{height:150px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;margin-bottom:14px}.bimg svg{height:130px;width:auto}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:40px 24px;text-align:center;margin:56px 0}
+.cta h2{margin-top:0}
+footer{color:var(--muted);font-size:14px;padding:0 0 32px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo">rrr<b>.</b>market</div>
+  <nav><a href="#countries">Страны</a><a href="#how">Как заказать</a><a href="#link">Отправить ссылку</a><a href="#calc">Калькулятор</a><a href="#brands">Бренды</a><a href="#why">Почему мы</a><a href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B5%D1%89%D1%8C" target="_blank" rel="noopener">Telegram</a><a href="https://t.me/RRR_Market" target="_blank" rel="noopener">Канал</a></nav>
+</header>
+
+<section class="hero">
+  <h1><mark>Выкуп одежды</mark> из Китая, Японии, Кореи и Европы.</h1>
+  <p><mark>Пришлите ссылку</mark> на вещь — мы выкупим её, проверим и доставим вам. <mark>Без посредников</mark> и сложностей с оплатой.</p>
+  <a class="btn" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B5%D1%89%D1%8C" target="_blank" rel="noopener">Оформить заказ в Telegram</a><a class="btn o" href="#how">Как это работает</a>
+</section>
+
+<section id="countries">
+  <h2>Откуда выкупаем</h2>
+  <div class="grid">
+    <div class="card"><div class="e">🇨🇳</div><h3>Китай</h3><p>Poizon, Taobao, 1688, Pinduoduo</p><div class="eta">⏱ 14–20 дней</div></div>
+    <div class="card"><div class="e">🇯🇵</div><h3>Япония</h3><p>Mercari, Rakuten, Zozotown, Yahoo Auctions</p><div class="eta">⏱ 7–10 дней<small>до Владивостока</small></div></div>
+    <div class="card"><div class="e">🇰🇷</div><h3>Корея</h3><p>Musinsa, Wconcept, Coupang</p><div class="eta">⏱ 10–11 дней<small>до Москвы</small></div></div>
+    <div class="card"><div class="e">🇪🇺</div><h3>Европа</h3><p>Zalando, ASOS, Vinted, бутики и аутлеты</p><div class="eta">⏱ 10–14 дней<small>Vinted</small></div></div>
+  </div>
+</section>
+
+<section id="how">
+  <h2>Как заказать</h2>
+  <div class="grid">
+    <div class="card"><div class="n">01</div><h3>Отправьте ссылку</h3><p>Магазин, товар, размер и цвет.</p></div>
+    <div class="card"><div class="n">02</div><h3>Рассчитаем цену</h3><p>Цена вещи, комиссия и доставка — <mark>всё сразу</mark>.</p></div>
+    <div class="card"><div class="n">03</div><h3>Выкупим</h3><p>Оплатим заказ и проверим вещь на складе.</p></div>
+    <div class="card"><div class="n">04</div><h3>Доставим</h3><p>Отправим вам до двери и дадим трек-номер.</p></div>
+  </div>
+</section>
+
+<section id="why">
+  <h2>Почему rrr market</h2>
+  <div class="grid">
+    <div class="card"><div class="e">🔍</div><h3>Проверка вещи</h3><p>Осматриваем товар перед отправкой.</p></div>
+    <div class="card"><div class="e">💬</div><h3>Всё прозрачно</h3><p>Итоговая цена известна <mark>до оплаты</mark>.</p></div>
+    <div class="card"><div class="e">📦</div><h3>Объединение посылок</h3><p>Соберём заказы из разных стран.</p></div>
+  </div>
+  <div class="tags"><span>Одежда</span><span>Обувь</span><span>Аксессуары</span><span>Сумки</span><span>Винтаж</span></div>
+</section>
+
+<section id="link">
+  <h2>Отправьте ссылку на товар</h2>
+  <div class="calc" style="grid-template-columns:1fr;max-width:620px">
+    <div>
+      <label for="lk">Ссылка на вещь</label>
+      <input id="lk" type="url" inputmode="url" placeholder="https://...">
+      <label for="lc">Размер, цвет, комментарий (по желанию)</label>
+      <input id="lc" type="text" placeholder="Например, размер M, чёрный">
+      <a class="btn" id="lsend" href="#" target="_blank" rel="noopener" style="display:block;text-align:center">Отправить в Telegram</a>
+      <p class="hint">Откроется чат с готовым сообщением. Останется нажать «Отправить», и мы рассчитаем стоимость.</p>
+    </div>
+  </div>
+</section>
+
+<section id="calc">
+  <h2>Калькулятор стоимости</h2>
+  <div class="calc">
+    <div>
+      <label for="cc">Откуда заказываем</label>
+      <select id="cc">
+        <option value="CNY">Китай (юань)</option>
+        <option value="JPY">Япония (иена)</option>
+        <option value="KRW">Корея (вона)</option>
+        <option value="EUR">Европа (евро)</option>
+      </select>
+      <label for="pr" id="prl">Цена товара, ¥</label>
+      <input id="pr" type="number" inputmode="decimal" min="0" placeholder="Например, 1500">
+      <a class="btn" id="ordr" href="#" target="_blank" rel="noopener" style="display:block;text-align:center">Заказать в Telegram</a>
+    </div>
+    <div>
+      <div class="row"><span>Курс</span><span id="rt">—</span></div>
+      <div class="row"><span>Стоимость товара</span><span id="it">0 ₽</span></div>
+      <div class="row"><span>Доставка до Москвы</span><span id="dl">0 ₽</span></div>
+      <div class="row total"><span>Итого</span><span id="tt">0 ₽</span></div>
+      <p class="hint">Расчёт предварительный. Точную сумму подтвердим в Telegram.</p>
+    </div>
+  </div>
+</section>
+
+<section id="brands">
+  <h2>Привозим любимые бренды</h2>
+  <div class="brands"><div class="brand"><div class="bimg"><svg viewBox="0 0 120 120" role="img" aria-label="Stone Island"><path d="M38 22 L52 16 Q60 24 68 16 L82 22 L104 44 L94 62 L84 54 L84 104 L36 104 L36 54 L26 62 L16 44 Z" fill="#4a6b5d"/><path d="M60 24 V104" stroke="#2f4a3e" stroke-width="2"/><circle cx="22" cy="50" r="6" fill="#e8d9a0"/></svg></div><h3>Stone Island</h3><div class="o">Италия · с 1982</div><p>Технологичная повседневная одежда. Известна экспериментальными тканями, окраской готовой вещи и съёмным значком-компасом на рукаве.</p><a class="btn buy" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20Stone%20Island" target="_blank" rel="noopener">Купить</a></div><div class="brand"><div class="bimg"><svg viewBox="0 0 120 120" role="img" aria-label="C.P. Company"><path d="M38 22 L52 16 Q60 24 68 16 L82 22 L104 44 L94 62 L84 54 L84 104 L36 104 L36 54 L26 62 L16 44 Z" fill="#2f3b4d"/><path d="M40 30 Q60 -2 80 30 Q60 40 40 30Z" fill="#26303f"/><circle cx="52" cy="24" r="6" fill="#9fb4c9" stroke="#111" stroke-width="2"/><circle cx="68" cy="24" r="6" fill="#9fb4c9" stroke="#111" stroke-width="2"/><path d="M60 40 V104" stroke="#1f2835" stroke-width="2"/></svg></div><h3>C.P. Company</h3><div class="o">Италия · с 1971</div><p>Спортивный стиль и окрашенная в готовом виде одежда. Узнаваема по куртке Goggle с линзами на капюшоне.</p><a class="btn buy" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20C.P.%20Company" target="_blank" rel="noopener">Купить</a></div><div class="brand"><div class="bimg"><svg viewBox="0 0 120 120" role="img" aria-label="Maison Margiela"><path d="M38 22 L52 16 Q60 24 68 16 L82 22 L104 44 L94 62 L84 54 L84 104 L36 104 L36 54 L26 62 L16 44 Z" fill="#e9e6df" stroke="#bbb" stroke-width="1"/><path d="M60 24 V104" stroke="#bbb" stroke-width="2"/><g stroke="#333" stroke-width="1.5"><path d="M86 66 H94 M86 71 H94 M86 76 H94 M86 81 H94"/></g></svg></div><h3>Maison Margiela</h3><div class="o">Франция · с 1988</div><p>Дом Мартина Марджелы. Деконструкция, швы наружу, туфли Tabi и белый ярлык с четырьмя стежками.</p><a class="btn buy" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20Maison%20Margiela" target="_blank" rel="noopener">Купить</a></div><div class="brand"><div class="bimg"><svg viewBox="0 0 120 120" role="img" aria-label="Gucci"><path d="M38 22 L52 16 Q60 24 68 16 L82 22 L104 44 L94 62 L84 54 L84 104 L36 104 L36 54 L26 62 L16 44 Z" fill="#1f4d3a"/><path d="M60 24 V104" stroke="#143626" stroke-width="2"/><path d="M36 70 H84" stroke="#a3202c" stroke-width="3"/></svg></div><h3>Gucci</h3><div class="o">Италия · с 1921</div><p>Флорентийский дом: кожаные изделия, лоферы с трензелем и фирменная зелёно-красная полоса.</p><a class="btn buy" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20Gucci" target="_blank" rel="noopener">Купить</a></div><div class="brand"><div class="bimg"><svg viewBox="0 0 120 120" role="img" aria-label="Louis Vuitton"><path d="M44 52 Q44 22 60 22 Q76 22 76 52" fill="none" stroke="#5a3720" stroke-width="5"/><rect x="22" y="48" width="76" height="54" rx="8" fill="#7a4e2d"/><rect x="22" y="48" width="76" height="12" rx="6" fill="#5a3720"/><g fill="#c9a15a"><circle cx="40" cy="76" r="3"/><circle cx="60" cy="86" r="3"/><circle cx="80" cy="76" r="3"/></g></svg></div><h3>Louis Vuitton</h3><div class="o">Франция · с 1854</div><p>Начинал с дорожных сундуков. Сегодня это сумки, чемоданы и узнаваемый монограммный узор.</p><a class="btn buy" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20Louis%20Vuitton" target="_blank" rel="noopener">Купить</a></div><div class="brand"><div class="bimg"><svg viewBox="0 0 120 120" role="img" aria-label="Dolce &amp; Gabbana"><path d="M38 22 L52 16 Q60 24 68 16 L82 22 L104 44 L94 62 L84 54 L84 104 L36 104 L36 54 L26 62 L16 44 Z" fill="#161616" stroke="#666" stroke-width="1.2"/><g fill="#d4af37"><circle cx="60" cy="48" r="3"/><circle cx="60" cy="62" r="3"/><circle cx="60" cy="76" r="3"/></g></svg></div><h3>Dolce &amp; Gabbana</h3><div class="o">Италия · с 1985</div><p>Сицилийский колорит, кружево, яркие принты и гламур от Доменико Дольче и Стефано Габбана.</p><a class="btn buy" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20Dolce%20%26%20Gabbana" target="_blank" rel="noopener">Купить</a></div></div>
+  <p style="color:var(--muted);margin:14px 0 0">Не нашли свой бренд? Напишите нам — выкупим и его.</p>
+</section>
+
+<section class="cta" id="cta">
+  <h2>Нашли вещь мечты? <mark>Мы её привезём.</mark></h2>
+  <p style="color:var(--muted);margin:0 0 22px">Отправьте ссылку — рассчитаем стоимость за пару минут.</p>
+  <a class="btn" href="https://t.me/Leksysprakyratyra777?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B5%D1%89%D1%8C" target="_blank" rel="noopener">Рассчитать заказ в Telegram</a> <a class="btn o" href="https://t.me/RRR_Market" target="_blank" rel="noopener">Наш канал</a>
+</section>
+
+<footer>© 2026 rrr market · <a href="https://t.me/RRR_Market" target="_blank" rel="noopener" style="color:inherit">Telegram-канал</a></footer>
+</div>
+<script>
+// === НАСТРОЙКИ: измените курсы (₽ за 1 единицу валюты) и доставку до Москвы (₽) ===
+var CFG={
+  CNY:{sym:"¥",rate:13.7,ship:1500},
+  JPY:{sym:"¥",rate:0.06,ship:1800},
+  KRW:{sym:"₩",rate:0.063,ship:1600},
+  EUR:{sym:"€",rate:95,ship:2000}
+};
+var TG="https://t.me/Leksysprakyratyra777?text=";
+var $=function(i){return document.getElementById(i)};
+function f(n){return Math.round(n).toLocaleString("ru-RU")+" ₽"}
+function calc(){
+  var c=CFG[$("cc").value],p=parseFloat($("pr").value)||0;
+  var item=p*c.rate,tot=p>0?item+c.ship:0;
+  $("prl").textContent="Цена товара, "+c.sym;
+  $("rt").textContent="1 "+c.sym+" = "+c.rate.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:3})+" ₽";
+  $("it").textContent=f(item);
+  $("dl").textContent=p>0?f(c.ship):f(0);
+  $("tt").textContent=f(tot);
+  var t="Хочу заказать вещь"+(p>0?". Расчёт: "+p+" "+c.sym+", итого "+f(tot):"");
+  $("ordr").href=TG+encodeURIComponent(t);
+}
+$("cc").onchange=calc;$("pr").oninput=calc;calc();
+function lnk(){
+  var u=$("lk").value.trim(),c=$("lc").value.trim();
+  var t="Хочу заказать вещь"+(u?". Ссылка: "+u:"")+(c?". "+c:"");
+  $("lsend").href=TG+encodeURIComponent(t);
+}
+$("lk").oninput=lnk;$("lc").oninput=lnk;lnk();
+</script>
+</body>
+</html>
